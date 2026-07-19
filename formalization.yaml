@@ -1,0 +1,158 @@
+# formalization.yaml (v0.3): repo-root metadata for formalization projects.
+# Schema/template: https://github.com/mathlib-initiative/formalization.yaml
+
+version: "v0.3"
+
+project:
+  name: "Erdos1196"
+  authors:
+    - "Boris Alexeev"
+    - "Kevin Barreto"
+    - "Yanyang Li"
+    - "Jared Duker Lichtman"
+    - "Liam Price"
+    - "Jibran Iqbal Shah"
+    - "Quanyu Tang"
+    - "Terence Tao"
+  license: "Apache-2.0"
+
+sources:
+  - title: "Primitive sets and von Mangoldt chains: Erdos Problem #1196 and beyond"
+    authors:
+      - "Boris Alexeev"
+      - "Kevin Barreto"
+      - "Yanyang Li"
+      - "Jared Duker Lichtman"
+      - "Liam Price"
+      - "Jibran Iqbal Shah"
+      - "Quanyu Tang"
+      - "Terence Tao"
+    id: "arXiv:2605.00301v1"
+    type: "preprint/manuscript"
+    license: "arXiv non-exclusive license to distribute (https://arxiv.org/licenses/nonexclusive-distrib/1.0/)"
+    author_contacted: "yes"
+    prior_work: ""
+
+status:
+  scope: >-
+    Full Lean 4 / Mathlib formalization of all results in the paper
+    "Primitive sets and von Mangoldt chains: Erdos Problem #1196 and beyond".
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+    - "propext"
+    - "Classical.choice"
+    - "Quot.sound"
+  main_results:
+    - declaration: "Erdos1196.theorem_1196"
+      file: "Erdos1196.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: ""
+      literature_dependencies: []
+    - declaration: "Erdos1196.theorem_164"
+      file: "Erdos1196.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: ""
+      literature_dependencies: []
+    - declaration: "Erdos1196.theorem_1217"
+      file: "Erdos1196.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: ""
+      literature_dependencies: []
+    - declaration: "Erdos1196.theorem_odd_banks_martin"
+      file: "Erdos1196.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: ""
+      literature_dependencies: []
+    - declaration: "Erdos1196.theorem_2_strong"
+      file: "Erdos1196.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: ""
+      literature_dependencies: []
+    - declaration: "Erdos1196.theorem_AKS"
+      file: "Erdos1196.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: ""
+      literature_dependencies: []
+    - declaration: "Erdos1196.aks_LYM_refinement"
+      file: "Erdos1196.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: ""
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "agent"
+      models:
+        - "ChatGPT"
+        - "Claude Fable 5"
+      framework: "Codex"
+      tool_setup: "Codex"
+      cost:
+        wall_time: "not recorded"
+        spend_usd: "not recorded"
+        hardware: "not recorded"
+      prompting_notes: "not recorded"
+  spend_usd: "not recorded"
+  notes: ""
+
+fidelity:
+  divergences: ""
+
+review:
+  status: "self-assessed"
+  reviewers: []
+  notes: ""
+
+alignment:
+  namespace: "Erdos1196"
+  statements:
+    - source: "Theorem 1.1: Erdos--Sarkozy--Szemeredi, #1196"
+      label: "conj:1196"
+      lean: "Erdos1196.theorem_1196"
+      module: "Erdos1196"
+      status: "proved"
+      note: ""
+    - source: "Theorem 1.2: Erdos primitive set conjecture, #164"
+      label: "conj:EPS"
+      lean: "Erdos1196.theorem_164"
+      module: "Erdos1196"
+      status: "proved"
+      note: ""
+    - source: "Theorem 1.3: Odd Banks--Martin"
+      label: "conj:oddBM"
+      lean: "Erdos1196.theorem_odd_banks_martin"
+      module: "Erdos1196"
+      status: "proved"
+      note: ""
+    - source: "Theorem 1.4: 2 is Erdos-strong"
+      label: "2-strong"
+      lean: "Erdos1196.theorem_2_strong"
+      module: "Erdos1196"
+      status: "proved"
+      note: ""
+    - source: "Theorem 1.5: Ahlswede--Khachatrian--Sarkozy inequality"
+      label: "AKS-thm"
+      lean: "Erdos1196.theorem_AKS"
+      module: "Erdos1196"
+      status: "proved"
+      note: ""
+    - source: "Theorem 1.6: Erdos--Sarkozy--Szemeredi, #1217"
+      label: "conj:1217"
+      lean: "Erdos1196.theorem_1217"
+      module: "Erdos1196"
+      status: "proved"
+      note: ""
+    - source: "Remark 8.1: AKS LYM refinement"
+      label: "lym-rem"
+      lean: "Erdos1196.aks_LYM_refinement"
+      module: "Erdos1196"
+      status: "proved"
+      note: ""
