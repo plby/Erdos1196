@@ -1,14 +1,14 @@
 {
   "challenge_module": "Challenge",
-  "solution_module": "Solution",
+  "solution_module": "Erdos1196",
   "theorem_names": [
-    "theorem_1196",
-    "theorem_164",
-    "theorem_1217",
-    "theorem_odd_banks_martin",
-    "theorem_2_strong",
-    "theorem_AKS",
-    "aks_LYM_refinement"
+    "Erdos1196.theorem_1196",
+    "Erdos1196.theorem_164",
+    "Erdos1196.theorem_1217",
+    "Erdos1196.theorem_odd_banks_martin",
+    "Erdos1196.theorem_2_strong",
+    "Erdos1196.theorem_AKS",
+    "Erdos1196.aks_LYM_refinement"
   ],
   "permitted_axioms": [
     "propext",

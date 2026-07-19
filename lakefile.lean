@@ -10,5 +10,3 @@ require mathlib from git
 lean_lib «Erdos1196» where
 
 lean_lib «Challenge» where
-
-lean_lib «Solution» where

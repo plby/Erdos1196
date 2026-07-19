@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Erdos1196
+
 noncomputable def erdos_weight (n : ℕ) : ℝ :=
   1 / ((n : ℝ) * Real.log (n : ℝ))
 
@@ -152,3 +154,5 @@ theorem aks_LYM_refinement :
         aksLYMSum A x y (aksPartitionFunction x (aksExponent x)) ≤
           C * Real.log x := by
   sorry
+
+end Erdos1196
