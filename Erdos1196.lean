@@ -3,12 +3,12 @@ import Mathlib
 /-!
 # Primitive sets and von Mangoldt chains
 
-This file is a single-file Lean formalisation of `mangoldt_arxiv.tex`.  It
-consolidates the development and keeps public names for all six headline
-theorems and the AKS LYM refinement.
+This file is a single-file Lean formalisation of `Erdos1196.tex`.  It
+consolidates the development and keeps public names for all six
+headline theorems and the AKS LYM refinement.
 -/
 
-namespace MangoldtArxiv
+namespace Erdos1196
 
 open scoped ComplexOrder
 
@@ -3905,16 +3905,7 @@ lemma eps_modified_chain_prime_power_incoming_reindex (P : ℕ → ℕ → ℝ) 
             have hk_real_ne : (k : ℝ) ≠ 0 := by positivity
             rw [Nat.cast_mul, Nat.cast_pow]
             field_simp [erdos_weight, hlogp_pos.ne', hp_real_ne, hk_real_ne]
-            calc
-              ArithmeticFunction.vonMangoldt (p ^ (k - 1)) + Real.log (p : ℝ) =
-                  (ArithmeticFunction.vonMangoldt (p ^ (k - 1)) + Real.log (p : ℝ)) *
-                    ((p : ℝ) * Real.log (p : ℝ) * erdos_weight p) := by
-                rw [hweight_mul]
-                ring
-              _ = (p : ℝ) * Real.log (p : ℝ) *
-                    (ArithmeticFunction.vonMangoldt (p ^ (k - 1)) + Real.log (p : ℝ)) *
-                    erdos_weight p := by
-                ring
+            exact hweight_mul.symm
           calc
             erdos_weight (p * q) * P (p * q) p =
                 erdos_weight p *
@@ -6112,11 +6103,10 @@ lemma mangoldt_weight_integral_change_of_variables_zeta_kernel_integrable
       simpa [Function.comp_def] using Complex.continuous_re.comp_continuousOn hzeta_cont
     have hrec_cont : ContinuousOn
         (fun u : ℝ => 1 / (riemannZeta ((1 + u : ℝ) : ℂ)).re) (Set.Ioi (0 : ℝ)) := by
-      have hinv := hden_cont.inv₀ (fun u hu => by
+      exact continuousOn_const.div₀ hden_cont (fun u hu => by
         exact (riemannZeta_re_pos_of_one_lt (by
           have hu_pos : 0 < u := by simpa [Set.mem_Ioi] using hu
           linarith : 1 < 1 + u)).ne')
-      simpa [one_div] using hinv
     have hnum_cont : ContinuousOn
         (fun u : ℝ => Real.log (n : ℝ) * Real.exp ((-Real.log (n : ℝ)) * u))
         (Set.Ioi (0 : ℝ)) := by
@@ -7517,7 +7507,7 @@ lemma reciprocal_zeta_ibp_regularity :
           (hz_diff.continuousAt.comp Complex.continuous_ofReal.continuousAt)).continuousWithinAt
       have hrec_cont : ContinuousOn
           (fun s : ℝ => 1 / ((riemannZeta (s : ℂ)).re)) (Set.Ioi (1 : ℝ)) := by
-        simpa [one_div] using hz_cont.inv₀ (by
+        exact continuousOn_const.div₀ hz_cont (by
           intro s hs
           exact (riemannZeta_re_pos_of_one_lt (by simpa [Set.mem_Ioi] using hs)).ne')
       have hpow_cont : Continuous (fun s : ℝ => Real.rpow (n : ℝ) s) :=
@@ -16825,8 +16815,13 @@ lemma aksPartitionFunction_eq_primePowerPartitionFunction {x s : ℝ}
         (fun q : ℕ => 1 / Real.rpow (q : ℝ) s) q) =
         ∑' q : {q : ℕ // IsSmallPrimePower x q},
           1 / Real.rpow (q.1 : ℝ) s := by
-      simpa [small_prime_powers] using
-        (tsum_subtype (small_prime_powers x)
+      change
+        (∑' q : ℕ, {q | IsSmallPrimePower x q}.indicator
+          (fun q : ℕ => 1 / Real.rpow (q : ℝ) s) q) =
+          ∑' q : {q // IsSmallPrimePower x q},
+            1 / Real.rpow (q.1 : ℝ) s
+      exact
+        (tsum_subtype {q : ℕ | IsSmallPrimePower x q}
           (fun q : ℕ => 1 / Real.rpow (q : ℝ) s)).symm
     _ = ∑' a : Σ _ : {p : ℕ // p ∈ Nat.primesLE ⌊x⌋₊}, ℕ,
           1 / Real.rpow (((a.1.1 ^ (a.2 + 1) : ℕ) : ℝ)) s := by
@@ -20760,4 +20755,4 @@ theorem two_is_erdos_strong : erdos_strong 2 := by
 theorem theorem_2_strong : erdos_strong 2 :=
   two_is_erdos_strong
 
-end MangoldtArxiv
+end Erdos1196
