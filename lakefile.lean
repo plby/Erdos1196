@@ -8,3 +8,7 @@ require mathlib from git
 
 @[default_target]
 lean_lib «Erdos1196» where
+
+lean_lib «Challenge» where
+
+lean_lib «Solution» where

@@ -48,43 +48,43 @@ status:
       file: "Erdos1196.lean"
       sorry_count: 0
       axioms: ["propext", "Classical.choice", "Quot.sound"]
-      comparator_config: ""
+      comparator_config: "comparator/config.json"
       literature_dependencies: []
     - declaration: "Erdos1196.theorem_164"
       file: "Erdos1196.lean"
       sorry_count: 0
       axioms: ["propext", "Classical.choice", "Quot.sound"]
-      comparator_config: ""
+      comparator_config: "comparator/config.json"
       literature_dependencies: []
     - declaration: "Erdos1196.theorem_1217"
       file: "Erdos1196.lean"
       sorry_count: 0
       axioms: ["propext", "Classical.choice", "Quot.sound"]
-      comparator_config: ""
+      comparator_config: "comparator/config.json"
       literature_dependencies: []
     - declaration: "Erdos1196.theorem_odd_banks_martin"
       file: "Erdos1196.lean"
       sorry_count: 0
       axioms: ["propext", "Classical.choice", "Quot.sound"]
-      comparator_config: ""
+      comparator_config: "comparator/config.json"
       literature_dependencies: []
     - declaration: "Erdos1196.theorem_2_strong"
       file: "Erdos1196.lean"
       sorry_count: 0
       axioms: ["propext", "Classical.choice", "Quot.sound"]
-      comparator_config: ""
+      comparator_config: "comparator/config.json"
       literature_dependencies: []
     - declaration: "Erdos1196.theorem_AKS"
       file: "Erdos1196.lean"
       sorry_count: 0
       axioms: ["propext", "Classical.choice", "Quot.sound"]
-      comparator_config: ""
+      comparator_config: "comparator/config.json"
       literature_dependencies: []
     - declaration: "Erdos1196.aks_LYM_refinement"
       file: "Erdos1196.lean"
       sorry_count: 0
       axioms: ["propext", "Classical.choice", "Quot.sound"]
-      comparator_config: ""
+      comparator_config: "comparator/config.json"
       literature_dependencies: []
 
 automation:

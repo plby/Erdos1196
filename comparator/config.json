@@ -1,0 +1,19 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "theorem_1196",
+    "theorem_164",
+    "theorem_1217",
+    "theorem_odd_banks_martin",
+    "theorem_2_strong",
+    "theorem_AKS",
+    "aks_LYM_refinement"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": false
+}
