@@ -10,12 +10,15 @@ noncomputable def erdos_weight (n : ℕ) : ℝ :=
 noncomputable def erdos_sum (A : Set ℕ) : ℝ :=
   ∑' n : ℕ, A.indicator erdos_weight n
 
+/-- A set of natural numbers whose distinct elements are incomparable under divisibility. -/
 abbrev primitive_set (A : Set ℕ) : Prop :=
   IsAntichain (fun a b : ℕ => a ∣ b) A
 
+/-- The property that every element of `A` is at least `x`. -/
 abbrev supported_above (A : Set ℕ) (x : ℝ) : Prop :=
   ∀ n : ℕ, n ∈ A -> x ≤ (n : ℝ)
 
+/-- A nonnegative constant giving the asserted Erdős-sum bound for primitive sets. -/
 structure erdos1196_bound (C : ℝ) : Prop where
   nonneg : 0 ≤ C
   bound :
@@ -30,9 +33,11 @@ theorem theorem_1196 :
     ∃ C : ℝ, erdos1196_bound C := by
   sorry
 
+/-- The property that `p` is the least prime factor of the nonzero natural number `n`. -/
 abbrev IsLeastPrimeFactor (p n : ℕ) : Prop :=
   n ≠ 0 ∧ Nat.Prime p ∧ p ∣ n ∧ ∀ q : ℕ, Nat.Prime q -> q ∣ n -> p ≤ q
 
+/-- The property that primitive sets with least prime factor `p` have sum at most its weight. -/
 abbrev erdos_strong (p : ℕ) : Prop :=
   Nat.Prime p ∧
     ∀ A : Set ℕ, primitive_set A ->
@@ -70,9 +75,11 @@ noncomputable def upper_doubly_log_density (A : Set ℕ) : ℝ :=
     (fun x : ℝ => erdos_sum_up_to A x / Real.log (Real.log x))
     Filter.atTop
 
+/-- A strictly increasing sequence in which every term divides its successor. -/
 abbrev strictly_increasing_divisibility_chain (n : ℕ → ℕ) : Prop :=
   StrictMono n ∧ ∀ i : ℕ, n i ∣ n (i + 1)
 
+/-- The property that every term of the sequence `n` belongs to `A`. -/
 abbrev chain_in_set (n : ℕ → ℕ) (A : Set ℕ) : Prop :=
   ∀ i : ℕ, n i ∈ A
 
@@ -87,6 +94,7 @@ noncomputable def upper_chain_density (n : ℕ → ℕ) : ENNReal :=
       ((chain_count_up_to n x : ℝ) / Real.log (Real.log x)))
     Filter.atTop
 
+/-- The property that the upper chain density of `n` is at least `Delta`. -/
 abbrev upper_chain_density_at_least (n : ℕ → ℕ) (Delta : ℝ) : Prop :=
   ENNReal.ofReal Delta ≤ upper_chain_density n
 
@@ -112,6 +120,7 @@ def omega_ge_layer (k : ℕ) : Set ℕ :=
 def restrict_to_primes (A Q : Set ℕ) : Set ℕ :=
   {n : ℕ | n ∈ A ∧ ∀ p : ℕ, Nat.Prime p -> p ∣ n -> p ∈ Q}
 
+/-- The property that every element of `Q` is an odd prime. -/
 abbrev IsSetOfOddPrimes (Q : Set ℕ) : Prop :=
   ∀ p : ℕ, p ∈ Q -> Nat.Prime p ∧ p ≠ 2
 
@@ -142,6 +151,7 @@ theorem theorem_AKS :
           C * Real.log x / Real.sqrt (Real.log (Real.log x)) := by
   sorry
 
+/-- The property that `q` is a positive power of a prime at most `x`. -/
 abbrev IsSmallPrimePower (x : ℝ) (q : ℕ) : Prop :=
   ∃ p j : ℕ, Nat.Prime p ∧ 1 ≤ j ∧ (p : ℝ) ≤ x ∧ q = p ^ j
 
