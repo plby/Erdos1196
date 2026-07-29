@@ -30,13 +30,9 @@ abbrev supported_above (A : Set ℕ) (x : ℝ) : Prop :=
 
 See Theorem 1.1 (`conj:1196`). -/
 structure erdos1196_bound (C : ℝ) : Prop where
-  /-- The bound constant is nonnegative.
-
-  See Theorem 1.1 (`conj:1196`). -/
+  /-- The bound constant is nonnegative. -/
   nonneg : 0 ≤ C
-  /-- The quantitative Erdős-sum bound for primitive sets supported above `x`.
-
-  See Theorem 1.1 (`conj:1196`). -/
+  /-- The quantitative Erdős-sum bound for primitive sets supported above `x`. -/
   bound :
     ∀ x : ℝ, 2 ≤ x -> ∀ A : Set ℕ,
       primitive_set A -> supported_above A x ->
