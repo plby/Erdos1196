@@ -14,7 +14,12 @@ project:
     - "Jibran Iqbal Shah"
     - "Quanyu Tang"
     - "Terence Tao"
+  responsible_maintainers:
+    - "Boris Alexeev"
   license: "Apache-2.0"
+
+repository:
+  role: "substantive-development"
 
 sources:
   - title: "Primitive sets and von Mangoldt chains: Erdos Problem #1196 and beyond"
@@ -28,10 +33,15 @@ sources:
       - "Quanyu Tang"
       - "Terence Tao"
     id: "arXiv:2605.00301v1"
-    type: "preprint/manuscript"
+    type: "paper"
+    relationship: "formalizes"
     license: "arXiv non-exclusive license to distribute (https://arxiv.org/licenses/nonexclusive-distrib/1.0/)"
     author_contacted: "yes"
     prior_work: ""
+
+classification:
+  arxiv: [math.NT, math.CO]
+  msc2020: [11B83, 11A05, 11N05, 11N37, 06A07]
 
 status:
   scope: >-
